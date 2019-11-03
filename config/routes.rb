@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       patch :complete
     end
   end
+
+  root "todo_items#index"
 end

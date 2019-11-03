@@ -2,7 +2,7 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [:edit, :update, :destroy, :complete]
 
   def index
-    @todo_items = TodoItem.all
+    @todo_items = TodoItem.all.sort_by { |item| item.completed ? 1 : 0 }
   end
 
   def new
@@ -30,7 +30,7 @@ class TodoItemsController < ApplicationController
     respond_to do |format|
       if @todo_item.update(todo_item_params)
         format.html { redirect_to todo_items_url, notice: 'Todo item was successfully updated.' }
-        format.json format.json { head :no_content }        
+        format.json { head :no_content }     
       else
         format.html { render :edit }
         format.json { render json: @todo_item.errors, status: :unprocessable_entity }
