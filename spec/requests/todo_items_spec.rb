@@ -37,7 +37,7 @@ RSpec.describe 'Todo Items', type: :request do
       expect(@todo_item.completed).to eq true
       follow_redirect!
 
-      expect(response.body).to include('Todo item was completed.')
+      expect(response.body).to include('Todo item was successfully completed.')
     end
   end
 end

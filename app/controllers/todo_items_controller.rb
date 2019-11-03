@@ -48,7 +48,7 @@ class TodoItemsController < ApplicationController
   def complete
     @todo_item.update_attribute(:completed, true)
     respond_to do |format|
-      format.html { redirect_to todo_items_url, notice: 'Todo item was completed.' }
+      format.html { redirect_to todo_items_url, notice: 'Todo item was successfully completed.' }
       format.json { head :no_content }
     end
   end
