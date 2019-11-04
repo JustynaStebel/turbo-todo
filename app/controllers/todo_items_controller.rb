@@ -1,5 +1,5 @@
 class TodoItemsController < ApplicationController
-  before_action :set_todo_item, only: %i(edit, update, destroy, complete)
+  before_action :set_todo_item, only: [:edit, :update, :destroy, :complete]
 
   def index
     @todo_items = TodoItem.all.order_by_completed
