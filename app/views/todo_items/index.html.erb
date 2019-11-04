@@ -9,7 +9,7 @@
     <% @todo_items.each do |todo_item| %>
       <div class="row">
         <div class="col-sm-8">
-          <div class="content"><%= todo_item.content %></div>
+          <div class="content"><%= sanitize todo_item.content %></div>
         </div>
         <div class="col-sm-4">
           <div class="btn-group buttons" role="group">
