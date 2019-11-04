@@ -13,7 +13,7 @@ RSpec.describe 'Todo Items', type: :request do
       get new_todo_item_path
       expect(response).to render_template(:new)
 
-      post '/todo_items', params: { todo_item: { content: 'My item', completed: false } }
+      post '/todo_items', params: { todo_item: { content: 'My item', completed_at: nil } }
 
       expect(response).to redirect_to(assigns(:item))
       follow_redirect!
@@ -25,7 +25,7 @@ RSpec.describe 'Todo Items', type: :request do
 
   describe 'PATCH /todo_items/:id/complete' do
     before do
-      @todo_item = TodoItem.create(id: 3, content: 'Test', completed: false)
+      @todo_item = TodoItem.create(id: 3, content: 'Test', completed_at: nil)
     end
 
     it 'marks an item as complete' do
@@ -34,7 +34,7 @@ RSpec.describe 'Todo Items', type: :request do
         id: '3'
       }
       @todo_item.reload
-      expect(@todo_item.completed).to eq true
+      expect(@todo_item.completed_at).not_to be nil
       follow_redirect!
 
       expect(response.body).to include('Todo item was successfully completed.')

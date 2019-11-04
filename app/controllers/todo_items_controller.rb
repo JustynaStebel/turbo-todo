@@ -2,7 +2,7 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: %i(edit, update, destroy, complete)
 
   def index
-    @todo_items = TodoItem.all.order(completed: :desc)
+    @todo_items = TodoItem.all.order_by_completed
   end
 
   def new
@@ -46,7 +46,7 @@ class TodoItemsController < ApplicationController
   end
 
   def complete
-    @todo_item.update_attribute(:completed, true)
+    @todo_item.update_attribute(:completed_at, Time.now)
     respond_to do |format|
       format.html { redirect_to todo_items_url, notice: 'Todo item was successfully completed.' }
       format.json { head :no_content }
@@ -60,6 +60,6 @@ class TodoItemsController < ApplicationController
   end
 
   def todo_item_params
-    params.require(:todo_item).permit(:content, :completed)
+    params.require(:todo_item).permit(:content, :completed_at)
   end
 end

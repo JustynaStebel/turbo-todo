@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TodoItem, type: :model do
-  subject { described_class.new(content: 'Test item', completed: false) }
+  subject { described_class.new(content: 'Test item', completed_at: nil) }
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
