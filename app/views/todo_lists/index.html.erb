@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">Turbo to-do list</h1>
+
+<div class="new-item"><%= link_to 'Add new list', new_todo_list_path %></div>
+
+<% if @todo_lists.any? %>
+  <div class="container">
+    <% @todo_lists.each do |todo_list| %>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="content"><%= sanitize todo_list.title %></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="btn-group buttons" role="group">
+            <button type="button" class="btn"><%= link_to 'Edit', edit_todo_list_path(todo_list) %></button>
+            <button type="button" class="btn"><%= link_to 'Delete', todo_list_path(todo_list), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            /<% if todo_list.all_completed? %>
+              <span class="badge badge-success done">All done!</span>
+            /<% end %>/
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% else %>
+    <div><div class="empty">You don't have any to-do lists. Add something!</div></div>
+  <% end %>
+
+<br>

@@ -28,22 +28,21 @@ body {
 	font-weight: 700;
 	font-size: 2.5rem;
 	text-transform: uppercase;
-	color: white;
+	color: #ffffff;
 	margin: 0;
 	a {
 		text-decoration: none;
-		color: white;
-		transition: all .4s ease-in-out;
+		color: #ffffff;
 		&:hover {
-			opacity: 0.4;
+			background-color: transparent;
 		}
 	}
 }
 
 .content {
-  margin: 0 0 3em 0;
+  margin: 0 0 1em 0;
   font-size: 1.5em;
-  color: white;
+  color: #ffffff;
   padding-left: 0.5em;
   padding-top: 0.5em;
 }
@@ -56,7 +55,7 @@ body {
 	text-align: center;
 	font-size: 0.8em;
 	a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     &:hover {
       background-color: transparent;
@@ -87,7 +86,7 @@ body {
 .back {
   a {
     font-size: 1em;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     &:hover {
       background-color: transparent;
@@ -120,7 +119,7 @@ div.actions {
   text-align: center;
   font-size: 2em;
   width: 50%;
-  color: white;
+  color: #ffffff;
 	max-width: 750px;
 	margin: 3em auto 0 auto;
 	padding: 1em 0;
